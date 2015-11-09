@@ -34,11 +34,13 @@ function rewrite(id, txt) {
   num = num + 1;
   document.getElementById(id).innerHTML = num + " " + txt;
 }
+
+requestFile('./test.txt');
+
 // --></script>
 </head>
 
 <body>
-<input id="Button" type="button" value="alert‚ğŒÄ‚Ô" onclick="javascript:requestFile('./test.txt')">  
 <p id="p1">undefined</p>
 
 <input  id="b1" type="button" value="•Ï‚í‚é" onclick="javascript:rewrite('p1', '‰ñ')">  
