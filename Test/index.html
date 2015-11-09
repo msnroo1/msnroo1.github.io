@@ -177,10 +177,10 @@ function myDisp(){
 	user = window.prompt("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS, "User name");
 	if(user != ""){
 		//"Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS
-		//user
+		//user wo soushin
 		}
 	//console.log(user);
-	//alert("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS);
+	clearInterval(IntervarID);
 	}
 
 	function draw()
@@ -307,9 +307,9 @@ function myDisp(){
 		}
 		//context.fillText(txt, 10, 100);
 	}
-	setInterval(draw, 10);
+	IntervarID=setInterval(draw,10);
 </script>
 </FORM>
-<div id="otsu">a</div>
+<div id="otsu">test</div>
 </body>
 </html>
