@@ -9,15 +9,6 @@ var num = 0;
 var xmlHttpReq;
 var txt="";
 
-function showDiag()
-	{
-	user = window.prompt("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS, "User name");
-	if(user != ""){
-		//"Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS
-		//user wo soushin
-		}
-	}
-
 function requestFile(fileName)
 {
   var xmlHttpReq = createHttpRequest();
@@ -26,20 +17,10 @@ function requestFile(fileName)
 
     if (xmlHttpReq.readyState==4) {
       //alert(xmlHttpReq.responseText);
-	<div id="test">xmlHttpReq.responseText;</div>
-	 document.getElementById(id).value = xmlHttpReq.responseText;
+	
 	//xmlHttpReq.responseText;
+	document.getElementById("otsu").innerHTML = xmlHttpReq.responseText;
     }
-  }
-  xmlHttpReq.send(null);
-}
-
-function saveFile(fileName, id) {
-  txt = document.getElementById(id).value;
-
-  //xmlHttpReq = createHttpRequest();
-  if (xmlHttpReq) {
-   xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
   }
   xmlHttpReq.send(null);
 }
@@ -54,13 +35,24 @@ function createHttpRequest() {
  return x;
 }
 
-showDiag();
-
 requestFile('./test.txt');
+
+window.onload  = function showDiag(){
+	user = window.prompt("Your clear", "User name");
+	if(user != ""){
+		saveFile('./test.txt', 'user');
+		//"Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS
+		//user wo soushin
+		}
+	}
+
 
 // --></script>
 </head>
-<input id="Button" type="button" value="XV‚·‚é" onclick="saveFile('./test.txt', 'text')">  
+<script type="text/javascript">
+
+</script>
 <body>
+<div id="otsu">test</div>
 </body>
 </html>
