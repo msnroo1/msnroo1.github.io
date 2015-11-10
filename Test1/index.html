@@ -24,13 +24,13 @@ function requestFile(fileName)
   xmlHttpReq.send(null);
 }
 
-function saveFile(fileName, id) {
+function saveFile(fileName) {
   txt = document.getElementById(id).value;
 
   //xmlHttpReq = createHttpRequest();
   if (xmlHttpReq) {
    xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
-   //document.getElementById(id).value = xmlHttpReq.responseText;
+   //document.getElementById("otsu").value = xmlHttpReq.responseText;
   }
 
   xmlHttpReq.send(null);
@@ -53,7 +53,7 @@ window.onload  = function showDiag(){
 	if(user != ""){
 		var node = document.getElementById("otsu");
   		node.innerHTML = ""+ user + " Clear time : " + "1s";
-		//saveFile('./test.txt', 'otsu');
+		//saveFile('./test.txt');
 		}
 	}
 
@@ -61,7 +61,7 @@ window.onload  = function showDiag(){
 // --></script>
 </head>
 <body>
-<input id="Button" type="button" value="reload" onclick="saveFile('./test.txt', 'ostu')"> 
+<input id="Button" type="button" value="reload" onclick="saveFile('./test.txt')"> 
 <div id="otsu"></div>
 </body>
 </html>
