@@ -24,6 +24,18 @@ function requestFile(fileName)
   xmlHttpReq.send(null);
 }
 
+function saveFile(fileName, id) {
+  txt = document.getElementById(id).value;
+
+  //xmlHttpReq = createHttpRequest();
+  if (xmlHttpReq) {
+   xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
+   //document.getElementById(id).value = xmlHttpReq.responseText;
+  }
+
+  xmlHttpReq.send(null);
+}
+
 function createHttpRequest() {
  var x = null;
 
