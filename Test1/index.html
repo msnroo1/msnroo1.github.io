@@ -37,21 +37,20 @@ function createHttpRequest() {
 requestFile('./test.txt');
 
 window.onload  = function showDiag(){
-	user = window.prompt("Your clear", "User name");
+	user = window.prompt("Your clear","user" );
 	if(user != ""){
-		saveFile('./test.txt', 'otsu');
-		//"Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS
-		//user wo soushin
+		var node = document.getElementById("target");
+  		node.innerHTML = ""+ user + " Clear time : " + "1s";
+		saveFile('./test.txt', 'target');
+		//"Your clear"
 		}
 	}
 
 
 // --></script>
 </head>
-<script type="text/javascript">
-
-</script>
 <body>
 <div id="otsu">test</div>
+<p id="target">•ÏX‘ÎÛ‚Å‚·</p>
 </body>
 </html>
