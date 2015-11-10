@@ -39,10 +39,9 @@ requestFile('./test.txt');
 window.onload  = function showDiag(){
 	user = window.prompt("Your clear","user" );
 	if(user != ""){
-		var node = document.getElementById("target");
+		var node = document.getElementById("otsu");
   		node.innerHTML = ""+ user + " Clear time : " + "1s";
-		saveFile('./test.txt', 'target');
-		//"Your clear"
+		saveFile('./test.txt', 'otsu');
 		}
 	}
 
@@ -50,7 +49,6 @@ window.onload  = function showDiag(){
 // --></script>
 </head>
 <body>
-<div id="otsu">test</div>
-<p id="target">•ÏX‘ÎÛ‚Å‚·</p>
+<div id="otsu"></div>
 </body>
 </html>
