@@ -25,7 +25,7 @@ function requestFile(fileName)
 }
 
 function saveFile(fileName) {
-  txt = document.getElementById("otsu").value;
+  var txt = document.getElementById("otsu").value;
 
   //xmlHttpReq = createHttpRequest();
   if (xmlHttpReq) {
@@ -53,8 +53,8 @@ window.onload  = function showDiag(){
 	user = window.prompt("Your clear","user" );
 	if(user != ""){
 		var node = document.getElementById("otsu");
-  		node.innerHTML = ""+ user + " Clear time : " + "1s";
-		//saveFile('./test.txt');
+  		node.innerHTML = "Clear user name "+ user + " : Clear time : " + "1s";
+		saveFile('./test.txt');
 		//var copyObj=document.getElementById("copybox");
        		//copyObj.innerHTML=motoObj.value;
 		}
@@ -64,7 +64,6 @@ window.onload  = function showDiag(){
 // --></script>
 </head>
 <body>
-<input id="Button" type="button" value="reload" onclick="saveFile('./test.txt')"> 
 <p id="otsu"></p>
 </body>
 </html>
