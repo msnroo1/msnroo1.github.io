@@ -46,9 +46,10 @@ function createHttpRequest() {
  return x;
 }
 
-window.onload.requestFile('./test.txt');
+
 
 window.onload  = function showDiag(){
+	requestFile('./test.txt');
 	user = window.prompt("Your clear","user" );
 	if(user != ""){
 		var node = document.getElementById("otsu");
