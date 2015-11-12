@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <script src="jquery-1.7.1.min.js"></script>
-        <script type="text/javascript" src="test.js"></script>
-    </head>
-    <body>
-        <div id="contents_sample_wrap">
-            <ul>
-                <li class="text_box">ボタンを押すとテキストが変わります</li>
-            </ul>
-            <input type="button" value="テキストを変更" id="count" /><!--クリックしたときにtext()
-            を実行-->
-            <input type="button" value="出力！" id="export" />
-            <a id="download" target="_blank">ダウンロード（IEでは、右クリック＞対象をファイルに保存）</a>
-        </div>
-    </body>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>サンプル</title>
+<script type="text/javascript">
+<!--
+function newpage() {
+	document.open();
+	document.write("こんにちは<br>\n");
+	document.writeln("<a href='javascript:history.back();'>戻る<\/a>");
+	document.close();
+}
+// -->
+</script>
+</head>
+<body>
+<a href="javascript:newpage();">新しいページ</a>
+</body>
 </html>
