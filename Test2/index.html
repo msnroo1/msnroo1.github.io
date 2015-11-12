@@ -1,0 +1,55 @@
+
+<html>
+<head>
+<title>XMLHttpRequest Trial</title>  
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
+<meta http-equiv="content-style-type" content="text/css" /> 
+<script type="text/javascript"><!--
+var xmlHttpReq;
+var txt="";
+
+function loadFile(fileName, id) {
+  xmlHttpReq = createHttpRequest();
+
+  if (xmlHttpReq) {
+    xmlHttpReq.open('GET', fileName ,true);
+    xmlHttpReq.onreadystatechange = function() {
+      if (xmlHttpReq.readyState==4) {
+        document.getElementById(id).value = xmlHttpReq.responseText;
+      }
+    }
+  }
+
+  xmlHttpReq.send(null);
+}
+
+function saveFile(fileName, id) {
+  txt = document.getElementById(id).value;
+
+  //xmlHttpReq = createHttpRequest();
+  if (xmlHttpReq) {
+   xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
+   //document.getElementById(id).value = xmlHttpReq.responseText;
+  }
+
+  xmlHttpReq.send(null);
+}
+
+function createHttpRequest() {
+  var x = null;
+
+  // for IE7, Firefox, Safari
+  if (window.XMLHttpRequest) {
+  return new XMLHttpRequest();
+ }
+  return x;
+}
+// --></script>
+</head>
+
+<body onLoad="loadFile('./test.txt', 'text')">
+<input id="Button" type="button" value="XV‚·‚é" onclick="saveFile('./test.txt', 'text')">  
+<br/>
+<textarea id="text" cols="40" rows="10"></textarea>
+</body>
+</html>
