@@ -1,55 +1,18 @@
-
+<!DOCTYPE html>
 <html>
-<head>
-<title>XMLHttpRequest Trial</title>  
-<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
-<meta http-equiv="content-style-type" content="text/css" /> 
-<script type="text/javascript"><!--
-var xmlHttpReq;
-var txt="";
-
-function loadFile(fileName, id) {
-  xmlHttpReq = createHttpRequest();
-
-  if (xmlHttpReq) {
-    xmlHttpReq.open('GET', fileName ,true);
-    xmlHttpReq.onreadystatechange = function() {
-      if (xmlHttpReq.readyState==4) {
-        document.getElementById(id).value = xmlHttpReq.responseText;
-      }
-    }
-  }
-
-  xmlHttpReq.send(null);
-}
-
-function saveFile(fileName, id) {
-  txt = document.getElementById(id).value;
-
-  //xmlHttpReq = createHttpRequest();
-  if (xmlHttpReq) {
-   xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
-   //document.getElementById(id).value = xmlHttpReq.responseText;
-  }
-
-  xmlHttpReq.send(null);
-}
-
-function createHttpRequest() {
-  var x = null;
-
-  // for IE7, Firefox, Safari
-  if (window.XMLHttpRequest) {
-  return new XMLHttpRequest();
- }
-  return x;
-}
-// --></script>
-</head>
-
-<body onLoad="loadFile('./load.rb', 'text')">
-<input id="Button" type="button" value="更新する" onclick="saveFile('./save.rb', 'text')">  
-<br/>
-<textarea id="text" cols="40" rows="10"></textarea>
-</body>
+    <head>
+        <script src="jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="test.js"></script>
+    </head>
+    <body>
+        <div id="contents_sample_wrap">
+            <ul>
+                <li class="text_box">ボタンを押すとテキストが変わります</li>
+            </ul>
+            <input type="button" value="テキストを変更" id="count" /><!--クリックしたときにtext()
+            を実行-->
+            <input type="button" value="出力！" id="export" />
+            <a id="download" target="_blank">ダウンロード（IEでは、右クリック＞対象をファイルに保存）</a>
+        </div>
+    </body>
 </html>

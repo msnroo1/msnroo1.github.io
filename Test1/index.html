@@ -24,8 +24,23 @@ function requestFile(fileName)
   xmlHttpReq.send(null);
 }
 
-/*function saveFile(fileName) {
-  var txt = document.getElementById("otsu").value;
+function saveFile() {
+var fs = WScript.CreateObject("Scripting.FileSystemObject");
+/*var file2 = fs.OpenTextFile("text.txt", 1);
+		var str = file2.ReadLine();
+		WScript.Echo(str);
+		file2.Close();*/
+
+		/*var file = fs.OpenTextFile("text.txt", 2, true, -1);
+		file.Write(""+ str + "ゴミィ！"　+ node);
+		file.Close(); */
+
+var fs = WScript.CreateObject("Scripting.FileSystemObject");
+var file = fs.OpenTextFile("text.txt", 2, true, 0);
+file.Write("マルペケつくろ～だぜ！");
+file.Close();
+
+/*var txt = document.getElementById("otsu").value;
 
   //xmlHttpReq = createHttpRequest();
   if (xmlHttpReq) {
@@ -33,10 +48,10 @@ function requestFile(fileName)
    //document.getElementById("otsu").value = xmlHttpReq.responseText;
   }
 
-  xmlHttpReq.send(null);
-}*/
+  xmlHttpReq.send(null);*/
+}
 
-function saveFile(fileName, id) {
+/*function saveFile(fileName, id) {
   txt = document.getElementById(id).value;
 
   //xmlHttpReq = createHttpRequest();
@@ -46,7 +61,7 @@ function saveFile(fileName, id) {
   }
 
   xmlHttpReq.send(null);
-}
+}*/
 
 function createHttpRequest() {
  var x = null;
@@ -76,7 +91,7 @@ function showDiag(){
 // --></script>
 </head>
 <body>
-<input  id="b1" type="button" value="osu" onclick="saveFile('./test.txt', 'otsu')"> 
+<input  id="b1" type="button" value="osu" onclick="saveFile()"> 
 <input id="Button" type="button" value="ose" onclick="javascript:showDiag()">
 <p id="otsu"></p>
 </body>
