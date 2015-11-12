@@ -56,10 +56,10 @@ function createHttpRequest() {
 
 function showDiag(){
 	//requestFile('./load.rb');
-	user = window.prompt("Your clear","user" );
+	user = window.prompt("Clear! Type your name.","User name" );
 	if(user != ""){
-		var node = document.getElementById("otsu");
-  		node.value = node.value + "\nClear user name "+ user + " : Clear time : " + "1s";
+		var node = document.getElementById("otsu2");
+  		node.innerHTML = "User name "+ user + " : Clear time : " + "1s";
 		//saveFile('./test.txt');
 		}
 	}
@@ -72,5 +72,6 @@ requestFile('./test.txt');
 
 <input id="Button" type="button" value="ose" onclick="showDiag()">
 <p id="otsu"></p>
+<p id="otsu2"></p>
 </body>
 </html>
