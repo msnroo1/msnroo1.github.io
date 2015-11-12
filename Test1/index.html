@@ -24,13 +24,25 @@ function requestFile(fileName)
   xmlHttpReq.send(null);
 }
 
-function saveFile(fileName) {
+/*function saveFile(fileName) {
   var txt = document.getElementById("otsu").value;
 
   //xmlHttpReq = createHttpRequest();
   if (xmlHttpReq) {
    xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
    //document.getElementById("otsu").value = xmlHttpReq.responseText;
+  }
+
+  xmlHttpReq.send(null);
+}*/
+
+function saveFile(fileName, id) {
+  txt = document.getElementById(id).value;
+
+  //xmlHttpReq = createHttpRequest();
+  if (xmlHttpReq) {
+   xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
+   //document.getElementById(id).value = xmlHttpReq.responseText;
   }
 
   xmlHttpReq.send(null);
@@ -49,7 +61,7 @@ function createHttpRequest() {
 
 
 function showDiag(){
-	//requestFile('./test.txt');
+	//requestFile('./load.rb');
 	user = window.prompt("Your clear","user" );
 	if(user != ""){
 		var node = document.getElementById("otsu");
@@ -64,8 +76,8 @@ function showDiag(){
 // --></script>
 </head>
 <body>
+<input  id="b1" type="button" value="osu" onclick="saveFile('./save.rb', 'text')"> 
 <input id="Button" type="button" value="ose" onclick="javascript:showDiag()">
-<input  id="b1" type="button" value="osu" onclick="javascript:saveFile('./test.txt')">  
 <p id="otsu"></p>
 </body>
 </html>
