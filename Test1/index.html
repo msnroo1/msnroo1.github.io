@@ -58,13 +58,14 @@ function showDiag(){
 	//requestFile('./load.rb');
 	user = window.prompt("Clear! Type your name.","User name" );
 	if(user != ""){
-		var node = document.getElementById("otsu2");
-  		node.innerHTML = "User name "+ user + " : Clear time : " + "1s";
+		requestFile('./test.txt');
+		var node2 = document.getElementById("otsu2");
+  		node2.innerHTML = "User name "+ user + " : Clear time : " + "1s";
 		//saveFile('./test.txt');
 		}
 	}
 
-requestFile('./test.txt');
+
 
 // --></script>
 </head>
