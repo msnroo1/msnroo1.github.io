@@ -176,12 +176,8 @@ function myDisp(){
 	{
 	user = window.prompt("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS, "User name");
 	if(user != ""){
-		document.getElementById("otsu").innerHTML =		
-		document.getElementById("otsu").innerHTML +
-		"\nClear user name "+ user + " : Clear time : " + "1s";
-
-		//"Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS
-		//user wo soushin
+		var node2 = document.getElementById("otsu2");
+  		node2.innerHTML = "User name "+ user + " : Clear time : " + myH + ":" + myM + ":" + myS + ":" + myMS;
 		}else {
 			
 		}
@@ -316,6 +312,7 @@ function myDisp(){
 	IntervarID=setInterval(draw,10);
 </script>
 </FORM>
+<p id="otsu2"></p>
 <div id="otsu"></div>
 </body>
 </html>
