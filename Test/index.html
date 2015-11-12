@@ -1,4 +1,4 @@
-ï»¿<html>
+<html>
 <head>
 <title>Around Block</title>
 
@@ -42,9 +42,9 @@ requestFile('./test.txt');
 <canvas id="canvas1" width="800" height="600"></canvas>
 <script type="text/javascript">
 
-	// canvasè¦ç´ ã®DOMã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
+	// canvas—v‘f‚ÌDOMƒIƒuƒWƒFƒNƒg‚ğæ“¾
 	var canvas = document.getElementById("canvas1");
-	// æç”»ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
+	// •`‰æƒRƒ“ƒeƒLƒXƒg‚ğæ“¾‚·‚é
 	var context = canvas.getContext("2d");
 	var context2 = canvas.getContext("2d");
 
@@ -54,7 +54,7 @@ requestFile('./test.txt');
 	var my = 0;
 	var b = 0;
 
-	//ãƒ–ãƒ­ãƒƒã‚¯ç§»å‹•
+	//ƒuƒƒbƒNˆÚ“®
 	var move = 0;
 	var change = 1; 
 
@@ -73,13 +73,13 @@ window.onload = function myCheck(){
 };
 function myDisp(){
       myStop=new Date();
-      myTime = myStop.getTime() - myStart.getTime(); // é€šç®—ãƒŸãƒªç§’
-      myH = Math.floor(myTime/(60*60*1000));         // æ™‚é–“å–å¾—
+      myTime = myStop.getTime() - myStart.getTime(); // ’ÊZƒ~ƒŠ•b
+      myH = Math.floor(myTime/(60*60*1000));         // ŠÔæ“¾
       myTime = myTime-(myH*60*60*1000);
-      myM = Math.floor(myTime/(60*1000));            // åˆ†å–å¾—
+      myM = Math.floor(myTime/(60*1000));            // •ªæ“¾
       myTime = myTime-(myM*60*1000);
-      myS = Math.floor(myTime/1000);                 // ç§’å–å¾—
-      myMS = myTime%1000;                            // ãƒŸãƒªç§’å–å¾—
+      myS = Math.floor(myTime/1000);                 // •bæ“¾
+      myMS = myTime%1000;                            // ƒ~ƒŠ•bæ“¾
       document.myForm.myFormTime.value = myH+":"+myM+":"+myS+":"+myMS;
 }
 
@@ -90,7 +90,7 @@ function myDisp(){
 	}
 	window.onmousemove = movehandler;
 
-	//ãƒœãƒ¼ãƒ«åˆæœŸå€¤
+	//ƒ{[ƒ‹‰Šú’l
 	var x = 200;
 	var y = 300;
 	var dx = 2;
@@ -98,7 +98,7 @@ function myDisp(){
 
 	var count = 0;
 
-	var hit = [0, 0, 0, 1]; // ãƒ–ãƒ­ãƒƒã‚¯ã®å£Šã‚Œã‚‹å›æ•°
+	var hit = [0, 0, 0, 1]; // ƒuƒƒbƒN‚Ì‰ó‚ê‚é‰ñ”
 	var r_w = 50.0;	// racket width
 	var b_w = 40.0;	// block width
 	var b_h = 40.0;	// block height
@@ -145,7 +145,7 @@ function myDisp(){
 		var bottom = 250 + b_h;
 		var dx, dy;
 
-		//ã“ã“		
+		//‚±‚±		
 
 		if((x + a_w < left) || (x >= right) || (y + a_h < top) || (y >= bottom)) {
 			return 0;
@@ -176,8 +176,14 @@ function myDisp(){
 	{
 	user = window.prompt("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS, "User name");
 	if(user != ""){
+		document.getElementById("otsu").innerHTML =		
+		document.getElementById("otsu").innerHTML +
+		"\nClear user name "+ user + " : Clear time : " + "1s";
+
 		//"Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS
 		//user wo soushin
+		}else {
+			
 		}
 	//console.log(user);
 	clearInterval(IntervarID);
@@ -236,7 +242,7 @@ function myDisp(){
 		context.fillStyle = "rgb(128, 128, 255)";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 		context2.fillStyle = "rgb(255, 255, 255)";
-		context2.fillRect(50, 50, 700, 500);//ãƒ‡ã‚¶ã‚¤ãƒ³
+		context2.fillRect(50, 50, 700, 500);//ƒfƒUƒCƒ“
 
 		mx = mouseX;
 		if(mx<50) {
@@ -283,7 +289,7 @@ function myDisp(){
 				if(hit[i]==0){
 					b++;
 					if(i == 3 && b ==4){
-						//ã‚¹ãƒˆãƒƒãƒ—
+						//ƒXƒgƒbƒv
 						if(myButton == 0){
 							s=myH+":"+myM+":"+myS+":"+myMS;
 							showDiag();
@@ -295,7 +301,7 @@ function myDisp(){
 				}
 		}
 
-		//contettx.font = "3px 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'";
+		//contettx.font = "3px '‚l‚r ‚oƒSƒVƒbƒN'";
 		context.fillText(count, 20, 295);
 		if (myButton == 0) context.fillText(myH+":"+myM+":"+myS+":"+myMS, 10, 30)
 		if (myButton == 1){
@@ -310,6 +316,6 @@ function myDisp(){
 	IntervarID=setInterval(draw,10);
 </script>
 </FORM>
-<div id="otsu">test</div>
+<div id="otsu"></div>
 </body>
 </html>
