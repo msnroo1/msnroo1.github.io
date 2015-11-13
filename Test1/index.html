@@ -7,61 +7,43 @@
 <script type="text/javascript"><!--
 var xmlHttpReq;
 var txt="";
+var node2 = "";
+var str = "";
 
-function requestFile(fileName)
-{
-  var xmlHttpReq = createHttpRequest();
-  xmlHttpReq.open('GET', fileName ,true);
-  xmlHttpReq.onreadystatechange = function() {
+function loadFile(){
+if(window.localStorage){
+str = window.localStorage.getItem("test_key");
 
-    if (xmlHttpReq.readyState==4) {
-      //alert(xmlHttpReq.responseText);
-	
-	//xmlHttpReq.responseText;
-	document.getElementById("otsu").innerHTML = xmlHttpReq.responseText;
-    }
-  }
-  xmlHttpReq.send(null);
+// JSON 文字列からオブジェクトに変換
+var obj = JSON.parse(str);
+
+node2 = document.getElementById("otsu");
+node2.innerHTML = obj;
+}
 }
 
-function saveFile(fileName) {
+function saveFile() {
+// ウェブストレージに対応している
+if(window.localStorage){
+	//loadFile();
+	/*str = window.localStorage.getItem("test_key");
 
+	// JSON 文字列からオブジェクトに変換
+	var obj = JSON.parse(str);*/
 
+	str = node2.innerHTML;
+	var json_text = JSON.stringify(str);
 
+	window.localStorage.setItem("test_key" , json_text);
 }
-
-/*function saveFile(fileName, id) {
-  txt = document.getElementById(id).value;
-
-  //xmlHttpReq = createHttpRequest();
-  if (xmlHttpReq) {
-   xmlHttpReq.open("GET", fileName+"?text="+escape(txt), true);
-   //document.getElementById(id).value = xmlHttpReq.responseText;
-  }
-
-  xmlHttpReq.send(null);
-}*/
-
-function createHttpRequest() {
- var x = null;
-
- // for IE7, Firefox, Safari
- if (window.XMLHttpRequest) {
-  return new XMLHttpRequest();
- }
- return x;
 }
-
-
 
 function showDiag(){
-	//requestFile('./load.rb');
 	user = window.prompt("Clear! Type your name.","User name" );
 	if(user != ""){
-		requestFile('./test.txt');
-		var node2 = document.getElementById("otsu2");
-  		node2.innerHTML = "User name "+ user + " : Clear time : " + "1s";
-		//saveFile('./test.txt');
+		node2 = document.getElementById("otsu2");  		
+		node2.innerHTML = "User name "+ user + " : Clear time : " + "1s";
+		saveFile();
 		}
 	}
 
@@ -70,9 +52,9 @@ function showDiag(){
 // --></script>
 </head>
 <body>
-
+<input id="But" type="button" value="osu" onclick="loadFile()">
 <input id="Button" type="button" value="ose" onclick="showDiag()">
-<p id="otsu"></p>
+<p id="otsu">iii</p>
 <p id="otsu2"></p>
 </body>
 </html>
