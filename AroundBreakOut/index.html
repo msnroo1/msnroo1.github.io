@@ -6,7 +6,7 @@
 <meta http-equiv="content-style-type" content="text/css" /> 
 </head>
 
-<input id="But" type="button" value="osu" onclick="startgame()" style = "WIDTH:800px">
+<input id="But" type="button" value="Start" onclick="startgame()" style = "WIDTH:800px">
 <canvas id="canvas1" width="800" height="600"></canvas>
 <script type="text/javascript">
 
@@ -79,7 +79,7 @@ node2.innerHTML = obj;
 
 	var count = 0;
 
-	var hit = [1, 2, 3, 3]; // ブロックの壊れる回数
+	var hit = [0, 0, 0, 1]; // ブロックの壊れる回数
 	var r_w = 50.0;	// racket width
 	var b_w = 40.0;	// block width
 	var b_h = 40.0;	// block height
@@ -156,7 +156,7 @@ node2.innerHTML = obj;
 	user = window.prompt("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS, "User name");
 	if(user != ""){
 		var node2 = document.getElementById("otsu2");
-  		node2.innerHTML = "User name "+ user + " : Clear time : " + myH + ":" + myM + ":" + myS + ":" + myMS;
+  		node2.innerHTML = "User name : "+ user + " / Clear time : " + myH + ":" + myM + ":" + myS + ":" + myMS;
 
 		if(window.localStorage){
 		str = node2.innerHTML;
