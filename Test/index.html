@@ -92,7 +92,7 @@ str = window.localStorage.getItem("test_key");
 var obj = JSON.parse(str);
 
 node2 = document.getElementById("otsu");
-node2.innerHTML = obj;
+node2.innerHTML += obj;
 }
 }
 
@@ -111,7 +111,7 @@ node2.innerHTML = obj;
 
 	var count = 0;
 
-	var hit = [1, 2, 3, 3]; // ブロックの壊れる回数
+	var hit = [0, 0, 0, 1]; // ブロックの壊れる回数
 	var r_w = 50.0;	// racket width
 	var b_w = 40.0;	// block width
 	var b_h = 40.0;	// block height
@@ -190,7 +190,7 @@ node2.innerHTML = obj;
 	user = window.prompt("Your clear time is "+ myH+":"+myM+":"+myS+":"+myMS, "User name");
 	if(user != ""){
 		var node2 = document.getElementById("otsu2");
-  		node2.innerHTML = "User name "+ user + " : Clear time : " + myH + ":" + myM + ":" + myS + ":" + myMS;
+  		node2.innerHTML += " User name "+ user + " : Clear time : " + myH + ":" + myM + ":" + myS + ":" + myMS;
 		//saveFile();
 
 		if(window.localStorage){
@@ -316,7 +316,7 @@ node2.innerHTML = obj;
 		}
 
 		//contettx.font = "3px 'ＭＳ Ｐゴシック'";
-		context.fillText(count, 20, 295);
+		//context.fillText(count, 20, 295);
 		if (myButton == 0) context.fillText(myH+":"+myM+":"+myS+":"+myMS, 10, 30)
 		if (myButton == 1){
 			context.fillText(s, 10, 30);			
@@ -340,7 +340,8 @@ startcheck = 1;
 
 </script>
 </FORM>
+<p>操作・ゲーム説明：マウスカーソルの位置によって移動する上下左右のバーを動かして、ボールを色のついた範囲に入らないようにしながらすべてのブロックを壊してください。</p>
 <p id="otsu2"></p>
-<p id="otsu"></div>
+<p id="otsu">前回 /</div>
 </body>
 </html>

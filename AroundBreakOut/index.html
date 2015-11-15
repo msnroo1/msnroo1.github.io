@@ -60,7 +60,7 @@ str = window.localStorage.getItem("test_key");
 var obj = JSON.parse(str);
 
 node2 = document.getElementById("otsu");
-node2.innerHTML = obj;
+node2.innerHTML += obj;
 }
 }
 
@@ -77,9 +77,9 @@ node2.innerHTML = obj;
 	var dx = 2;
 	var dy = 2;
 
-	var count = 0;
+	//var count = 0;
 
-	var hit = [1, 2, 3, 3]; // ブロックの壊れる回数
+	var hit = [1, 1, 2, 3]; // ブロックの壊れる回数
 	var r_w = 50.0;	// racket width
 	var b_w = 40.0;	// block width
 	var b_h = 40.0;	// block height
@@ -90,7 +90,6 @@ node2.innerHTML = obj;
 	{
 		if(x + a_w >= mouseX && x <= mouseX + r_w && y + a_h >= 550 && y <= 550)
 		{
-			//return true;
 			return dy = -2;
 		}
 		if(x + a_w >= mouseX && x <= mouseX + r_w && y >= 50 && y  < 31 + a_h)
@@ -165,6 +164,7 @@ node2.innerHTML = obj;
 		}
 
 		}
+
 	clearInterval(IntervarID);
 	}
 
@@ -195,27 +195,26 @@ node2.innerHTML = obj;
 			y = 300;
 			dx = 2;
 			dy = 2;
-			count = 0;
-
+			//count = 0;
 		} else if(x < 50) {
 			x = 150;
 			y = 300;
 			dx = -2;
 			dy = 2;
-			count = 0;
+			//count = 0;
 		}
 		if(y + a_w > 550) {
 			x = 400;
 			y = 300;
 			dx = 2;
 			dy = 2;
-			count = 0;
+			//count = 0;
 		} else if(y < 50) {
 			x = 400;
 			y = 300;
 			dx = 2;
 			dy = -2;
-			count = 0;
+			//count = 0;
 		}
 
 		context.fillStyle = "rgb(128, 128, 255)";
@@ -288,7 +287,7 @@ node2.innerHTML = obj;
 		}
 		
 		if(checkHit(x, y)) {
-			count = count + 1;
+			//count = count + 1;
 		}
 	}
 
@@ -304,7 +303,9 @@ startcheck = 1;
 
 </script>
 </FORM>
+<p>操作・ゲーム説明：マウスカーソルの位置によって移動する上下左右のバーを動かして、ボールを色のついた範囲に入らないようにしながらすべてのブロックを壊してください。</p>
+<p>画面上の「Start」ボタンを押すと開始します。</p>
 <p id="otsu2"></p>
-<p id="otsu"></div>
+<p id="otsu">前回記録 </div>
 </body>
 </html>
